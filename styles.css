@@ -71,7 +71,6 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-
 :root {
     --brightorange: hsl(31, 77%, 52%);
     --darkcyan: hsl(184, 100%, 22%);
@@ -82,10 +81,101 @@ textarea:not([rows]) {
 
 body {
   display: flex;
-  background-color:  var(--bgheadingsbtns);
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bgheadingsbtns);
+  font-family: 'Lexend Deca', serif;
 }
 
 main {
+  flex: 1;
   display: grid;
   place-items: center;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  background-color: white;
+  max-width: 18rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+img {
+  width: 4rem;
+}
+
+.card-section {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.card-section.sedan {
+  background-color: var(--brightorange);
+}
+
+.card-section.suv {
+  background-color: var(--darkcyan);
+}
+
+.card-section.luxury {
+  background-color: var(--verydarkcyan);
+}
+
+.learn-button.sedan {
+  color: var(--brightorange);
+}
+
+.learn-button.suv {
+  color: var(--darkcyan);
+}
+
+.learn-button.luxury {
+  color: var(--verydarkcyan);
+}
+
+.learn-button {
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  border: none;
+  max-width: 8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.learn-button:hover {
+  outline: 0.1rem solid white;
+  background-color: transparent;
+  color: white;
+}
+.section-category {
+  color: var(--bgheadingsbtns);
+  text-transform: uppercase;
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
+}
+
+p {
+  color: var(--paragraphs);
+  font-size: .8rem;
+}
+
+@media screen and (min-width: 32rem) {
+  :root {
+    font-size: 110%;
+  }
+
+  .card {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 48rem;
+  }
+
+  p {
+    padding-bottom: 6rem;
+  }
 }
